@@ -1,0 +1,95 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: a3-prime-job
+spec:
+  parallelism: 2
+  completions: 1
+  template:
+    spec:
+      containers:
+      - name: primes-in-range
+        image: docker.io/library/a3_prime_nums:1.0
+        imagePullPolicy: Never
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1024Mi"
+          requests:
+            cpu: "1"
+            memory: "512Mi"
+      restartPolicy: Never
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: a3-prime-pod
+spec:
+  containers:
+  - name: primes-in-range
+    image: docker.io/library/a3_prime_nums:1.0
+    resources:
+      limits:
+        cpu: "1"
+        memory: "512Mi"
+      requests:
+        cpu: "1"
+        memory: "256Mi"
+  restartPolicy: Never
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
